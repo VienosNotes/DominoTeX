@@ -1,79 +1,51 @@
 [% WRAPPER 'include/layout.tt' %]
 
-<h1 style="text-align: center">Hello, Amon2 world!</h1>
+<script type="text/javascript" src="[% uri_for('/static/js/send_tex.js') %]"></script>
 
-<div class="row">
-    <div class="span6">
-        <h2>For benchmarkers...</h2>
-        <p>If you want to benchmarking between Plack based web application frameworks, you should use <B>Amon2::Setup::Flavor::Minimum</B> instead.</p>
-        <p>You can use it as following one liner:</p>
-        <pre>% amon2-setup.pl --flavor Minimum Foo</pre>
+<h1 class="header">DominoTeX</h1>
+<div class="header">TeX-based PDF Delivery Service from Web - like a Pizza.</div>
+
+<hr>
+<div id="root" class="container-fluid">
+  <div id="fname_header" class="row-fluid">
+    <div class="span4"></div>
+    <div class="span8">
+      <label class="control-label" for="filename">file name:</label>
+      <input type="text" id="filename">
     </div>
-    <div class="span6">
-        <p>Amon2 is right for you if ...</p>
-        <ul>
-        <li>You need exceptional performance.</li>
-        <li>You want a framework with a small footprint.</li>
-        <li>You want a framework that requires nearly zero configuration.</li>
-        </ul>
+  </div>
+
+  <div id="main" class="row-fluid" style="margin-top: 20px">
+
+    <div id="mysidebar" class="span4">
+      <!-- <ul class="nav nav-list bs-docs-sidenav"> -->
+      <div class="well">
+      <ul class="nav nav-list">
+        <li class="nav-header">Insert commands</li>
+        <li><a href="#">Section (\section{...})</a></li>
+        <li><a href="#">Subsection (\subsection{...})</a></li>
+      </ul>
+      </div>
     </div>
+
+    <div class="span8">    
+      <form method="" id="a" onsubmit="return false;" action="#">
+        <textarea id="pad" name="main_pad" rows="30" class="span12"></textarea>
+      </form>
+      <div align="right" style="margin-right: 19px"><input type="submit" class="btn btn-inverse" value="Compile" id="compile"></input>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+  <div id="output_preview" class="row-fliod">
+    <div id="sumbs" class="span3">
+      <ul class="sumbnails">
+        
+      </ul>
+    </div>
+  </div>
 </div>
-
 <hr />
-
-<style>
-    .marketing .row {
-        margin-top: 20px;
-    }
-</style>
-<div class="marketing">
-    <h1 style="text-align: center; font-size: 280%;">Battery Included?</h1>
-
-    <div class="row">
-        <div class="span4">
-            <h2>CSS Library</h2>
-            <div>
-                Current version of Amon2 using twitter's bootstrap.css as a default CSS library.<br />
-                If you want to learn it, please access to <a href="http://twitter.github.com/bootstrap/">twitter.github.com/bootstrap/</a>
-            </div>
-        </div>
-
-        <div class="span4">
-            <h2>JS Library</h2>
-            <div>
-                <a href="http://jquery.com/">jQuery</a> included.
-            </div>
-        </div>
-
-        <div class="span4">
-            <h2>Template Engine</h2>
-            <div>
-                Amon2 uses <B>Text::Xslate</B>(TTerse) as a primary template engine.<br />
-                But you can use any template engine easily.
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="span4">
-            <h2>O/R Mapper?</h2>
-            <div>
-                There is no O/R Mapper support. But I recommend to use Teng.<br />
-                You can integrate Teng very easily.<br />
-                See <a href="http://amon.64p.org/database.html#teng">This page</a> for more details.
-            </div>
-        </div>
-    </div>
-</div>
-
-<hr />
-
-<section class="row">
-    <div class="span12">
-        <h1>Documents?</h1>
-        <p>Complete docs are available on <a href="http://amon.64p.org/">amon.64p.org</a></p>
-        <p>And there is module specific docs on <a href="https://metacpan.org/release/Amon2">CPAN</a></p>
-    </div>
-</section>
 
 [% END %]
