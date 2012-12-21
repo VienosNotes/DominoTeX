@@ -36,5 +36,5 @@ sub compile {
     $mesg .= $_ for <$rdr>;
     waitpid($pid, 0);
     chdir("../..");
-    return ($?, $mesg);
+    return ($?, $mesg, $dir, $fname);
 }

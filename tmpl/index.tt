@@ -1,19 +1,13 @@
 [% WRAPPER 'include/layout.tt' %]
 
 <script type="text/javascript" src="[% uri_for('/static/js/send_tex.js') %]"></script>
-
+<script type="text/javascript" src="http://naoyat.github.com/dvi.js/dvi.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://naoyat.github.com/dvi.js/texfonts.min.css"></style>
 <h1 class="header">DominoTeX</h1>
 <div class="header">TeX-based PDF Delivery Service from Web - like a Pizza.</div>
 
 <hr>
 <div id="root" class="container-fluid">
-  <div id="fname_header" class="row-fluid">
-    <div class="span4"></div>
-    <div class="span8">
-      <label class="control-label" for="filename">file name:</label>
-      <input type="text" id="filename">
-    </div>
-  </div>
 
   <div id="main" class="row-fluid" style="margin-top: 20px">
 
@@ -36,15 +30,13 @@
       </div>
     </div>
   </div>
-
-  <hr>
-  <div id="output_preview" class="row-fliod">
-    <div id="sumbs" class="span3">
-      <ul class="sumbnails">
-        
-      </ul>
-    </div>
-  </div>
+</div>
+<hr>
+<div id="preview">
+   <div id="navi"></div>
+   <div id="out"></div>
+</div>
+  
 </div>
 <hr />
 
