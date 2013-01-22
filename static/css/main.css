@@ -16,6 +16,11 @@ footer {
     text-align: center;
 }
 
+.preview {
+/*    border: solid;*/
+    width: 640px;
+    height: 2000px;
+}
 /* smart phones */
 @media screen and (max-device-width: 480px) {
 }

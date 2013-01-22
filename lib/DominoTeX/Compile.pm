@@ -30,11 +30,15 @@ sub compile {
     my $command = "/usr/bin/env platex `basename $fname" . ".tex` && /usr/bin/env dvipdfmx `basename $fname" . ".dvi`";
 
     my $mesg = "";
-    my ($wtr, $rdr);
-    my $pid = open3($wtr, $rdr, 0, $command);
+    my $errlog = "";
+    my ($wtr, $rdr, $err);
+    my $pid = open3($wtr, $rdr, $err, $command);
     close $wtr;
     $mesg .= $_ for <$rdr>;
+    $errlog .= $_ for <$err>;
+    print "ERR:\n" . $errlog;
+    print "MESG:\n" . $mesg;
     waitpid($pid, 0);
     chdir("../..");
-    return ($?, $mesg, $dir, $fname);
+    return ($?, ($? ? $errlog : $mesg) , $dir, $fname);
 }

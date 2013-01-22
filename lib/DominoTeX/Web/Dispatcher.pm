@@ -6,7 +6,7 @@ use utf8;
 use DominoTeX::Compile;
 use Amon2::Web::Dispatcher::Lite;
 
-our $DEBUG = 1;
+our $DEBUG = 0;
 
 
 any '/' => sub {
@@ -51,7 +51,7 @@ post '/compile' => sub {
         my @entry = readdir $dh;
         closedir $dh;
         my @png = grep {/^pv_/}  @entry;
-        $c->render('success.tt' => { log => $log, dir => $dir, uri_dvi => 'output/sample/YOmRw_iL3VH6i.dvi', list => \@png });
+        $c->render('success.tt' => { log => $log, dir => $dir, uri_dvi => 'output/' . $fname . '.dvi', list => \@png });
     }
 };
 
